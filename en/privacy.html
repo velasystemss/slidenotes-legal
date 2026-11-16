@@ -14,7 +14,7 @@
 </header>
 
 <h1>Privacy Policy</h1>
-<p class="meta">Effective 15 November 2026 · Version 1.0</p>
+<p class="meta">Effective 16 November 2026 · Version 1.1</p>
 
 <h2>Who we are</h2>
 <p>SlideNotes is an iPad app published by Gokberk Şenel (Vela Systems), Prof. Dr. Ahmet Taner Kışlalı Mah., Selçuk Yula Cad., Çankaya/Ankara, Türkiye (“we”, “us”). We are the data controller for the data described here under the Turkish Personal Data Protection Law No. 6698 (KVKK) and the EU General Data Protection Regulation (GDPR). Contact: <a href="mailto:velalabss@gmail.com">velalabss@gmail.com</a>.</p>
@@ -25,7 +25,8 @@
   <li>Lecture audio never leaves your device. Speech is turned into text on the iPad.</li>
   <li>AI features (Plus and Pro) send only the text and images a feature needs, after you accept a notice, to our server in Frankfurt and from there to Anthropic’s Claude API in the United States. We don’t store that content.</li>
   <li>There are no ads, no tracking across apps or websites, no advertising identifiers and no third-party analytics.</li>
-  <li>You don’t give us your name or email. AI features use an anonymous account made on your device.</li>
+  <li>You don’t give us your name. AI features use an anonymous account made on your device; signing in with Apple is optional.</li>
+  <li>You can delete your account in the app at any time: Settings › Account › Delete Account.</li>
 </ul>
 
 <h2>What stays on your device</h2>
@@ -37,6 +38,7 @@
 <p>Nothing is sent before you accept the AI notice in the app. When you use an AI feature, the app sends only what that feature needs, for example: the text of your slides and transcripts (and images of slides that have little text), your typed notes and marks, images of handwriting you ask to be read, your question and the passages from your notes it is answered from, a photo or file of an exam schedule, or the text you ask the writing assistant to change. Audio is never sent.</p>
 <p>This content goes to our server functions hosted by Supabase in the EU (Frankfurt, Germany, region eu-central-1) and from there to Anthropic PBC’s Claude API in the United States, which produces the answer. Our server does not store the content of requests or answers and does not write it to logs; it records only what is needed to run the service and enforce plan allowances: an anonymous user id, which feature was used and when, token counts and cost, run and batch identifiers, and error codes. Under its commercial terms, Anthropic does not use inputs and outputs of its API to train its models, and deletes them from its systems within 30 days, except content flagged for violating its Usage Policy (kept for up to 2 years) or data it must keep to comply with the law.</p>
 <p><strong>Anonymous account.</strong> On the first AI use the app creates an anonymous account with Supabase Auth. Its session is stored in your iPad’s keychain. It has no name, email or password.</p>
+<p><strong>Sign in with Apple (optional).</strong> If you choose Sign in with Apple in Settings › Account, Apple gives us a stable identifier for your Apple Account and an email address: your own, or a private relay address if you choose “Hide My Email”. We don’t ask Apple for your name. Supabase Auth stores them with your account so your AI plan, usage and subscription follow you to your other devices and after reinstalling. Your notes are not part of the account.</p>
 
 <h2>Subscriptions</h2>
 <p>Subscriptions are sold and charged by Apple through the App Store; we never see your payment details. We use RevenueCat, Inc. (United States) to manage subscriptions. RevenueCat receives your anonymous account id, the App Store transaction and subscription details (product, purchase, renewal and expiry dates, trial, country/currency) and basic app and device information needed to validate purchases. RevenueCat informs our server of subscription changes so the right plan applies to your account; our server stores the subscription’s state, product, dates, trial status and event ids (not prices or payment details).</p>
@@ -46,6 +48,7 @@
   <tr><th>Purpose</th><th>Data</th><th>Legal basis</th></tr>
   <tr><td>Providing AI features you ask for</td><td>Content of the request (not stored), anonymous id</td><td>Performance of the contract (GDPR Art. 6(1)(b); KVKK Art. 5(2)(c)); the AI notice is your informed choice to use these features</td></tr>
   <tr><td>Plan allowances, abuse prevention, cost control</td><td>Anonymous id, usage counts, token counts, cost</td><td>Contract; our legitimate interest in a fair and affordable service (GDPR Art. 6(1)(f); KVKK Art. 5(2)(f))</td></tr>
+  <tr><td>Keeping your account on all your devices (Sign in with Apple)</td><td>Apple’s identifier for your account, the email Apple shares</td><td>Contract, at your request (GDPR Art. 6(1)(b); KVKK Art. 5(2)(c))</td></tr>
   <tr><td>Subscriptions</td><td>Anonymous id, subscription and transaction details</td><td>Contract; legal obligations for financial records (GDPR Art. 6(1)(c); KVKK Art. 5(2)(ç))</td></tr>
   <tr><td>Aggregated usage statistics to size plans</td><td>Usage counts per plan, without content</td><td>Legitimate interest</td></tr>
 </table>
@@ -54,11 +57,14 @@
 <p>AI requests are processed by Anthropic and subscription data by RevenueCat in the United States. These transfers rely on the safeguards available under KVKK Article 9 and GDPR Chapter V (such as standard contractual clauses). Our server provider stores data in the EU (Germany).</p>
 
 <h2>How long we keep data</h2>
-<p>Usage records are kept for 12 months for allowances, billing disputes and statistics, then deleted or anonymised. Subscription records are kept as long as the subscription exists and afterwards as long as the law requires. Request content is not kept by us. Data on your iPad stays until you delete it or the app.</p>
+<p>Usage records are kept for 12 months for allowances, billing disputes and statistics, then deleted or anonymised. Subscription records are kept as long as the subscription exists and afterwards as long as the law requires. Request content is not kept by us. Data on your iPad stays until you delete it or the app. When you delete your account, see “Deleting your account” below.</p>
 
 <h2>Your rights</h2>
 <p>You can ask to access, correct, delete or receive a copy of your data, object to or restrict processing, and withdraw consent (KVKK Article 11; GDPR Articles 15–22). Because the account is anonymous, include the Account ID shown in Settings › AI Plan and Usage when you write to <a href="mailto:velalabss@gmail.com">velalabss@gmail.com</a>. You may also complain to the Turkish Personal Data Protection Authority (KVKK) or the data protection authority in your EU country.</p>
-<p>Deleting the app removes everything on the device. To delete what our server holds about your anonymous account, contact us. Subscriptions are cancelled in your Apple Account’s settings.</p>
+<h2>Deleting your account</h2>
+<p>You can delete your account in the app: <strong>Settings › Account › Delete Account</strong>. This deletes at once, on our server: your account, its Apple sign-in identifier and email, your AI usage records, run and batch identifiers and any plan override, and removes your account id from our subscription event log. If you signed in with Apple, the app asks Apple to confirm and we revoke SlideNotes’ Sign in with Apple tokens; you can also remove SlideNotes in your Apple Account settings under Sign in with Apple.</p>
+<p>Two things stay for a limited time, without anything that leads to you: if you held an App Store subscription, its record stays (it belongs to the purchase, so a later restore can move it to a new account, and as a financial record), and so do the usage counts of its current month or free trial (numbers of runs, tokens and cost per day, never content), so that deleting and restoring can’t reset the subscription’s AI allowance. Those counts are deleted automatically once that month or trial is over; the deleted account’s random id is removed from the subscription record 30 days after the subscription ends.</p>
+<p>Deleting your account doesn’t cancel an App Store subscription: cancel it in your Apple Account’s Subscriptions settings (the Delete Account screen links there). Your notes are not on our server: they stay on your iPad and, with iCloud sync on, in your iCloud. Delete the app to remove them from the iPad, and delete SlideNotes’ data in your iCloud storage settings to remove them from iCloud. You can also ask us to delete your data by email, with the Account ID from Settings › AI Plan and Usage.</p>
 
 <h2>Children</h2>
 <p>SlideNotes is made for students in higher education and is not directed at children under 13.</p>
