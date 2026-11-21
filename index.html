@@ -1,28 +1,367 @@
 <!doctype html>
-<html lang="tr">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Notemory</title>
-<link rel="stylesheet" href="style.css">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Notemory: Lecture Notes &amp; AI for iPad</title>
+<meta name="description" content="Record the lecture, write on your slides with Apple Pencil, tap your ink to hear that moment, and let AI turn it into summaries and quizzes that point back to the exact slide. For iPad.">
+<meta name="theme-color" content="#F4F2EE" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0E1015" media="(prefers-color-scheme: dark)">
+<meta name="color-scheme" content="light dark">
+<meta name="apple-itunes-app" content="app-id=6837686573">
+<link rel="canonical" href="https://notemory.app/">
+<link rel="alternate" hreflang="tr" href="https://notemory.app/?lang=tr">
+<link rel="alternate" hreflang="en" href="https://notemory.app/?lang=en">
+<link rel="alternate" hreflang="x-default" href="https://notemory.app/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Notemory">
+<meta property="og:url" content="https://notemory.app/">
+<meta property="og:title" content="Notemory: Lecture Notes &amp; AI">
+<meta property="og:description" content="Record the lecture, write on your slides, tap your ink to hear that moment. Summaries and quizzes that point back to the exact slide. For iPad.">
+<meta property="og:image" content="https://notemory.app/assets/img/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Notemory on iPad: a lecture slide with handwritten notes and the lecture's transcript">
+<meta property="og:locale" content="en_US">
+<meta property="og:locale:alternate" content="tr_TR">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/BricolageGrotesque-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/DMSans-Regular.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/site.css">
+<script>
+  // Before the first paint: the language (?lang=, else Turkish for Turkish browsers), so nothing flashes.
+  (function () {
+    var d = document.documentElement, q = new URLSearchParams(location.search).get("lang");
+    var langs = navigator.languages || [navigator.language || "en"];
+    var tr = q ? q === "tr" : langs.some(function (l) { return /^tr\b/i.test(l); });
+    d.lang = tr ? "tr" : "en";
+    d.classList.remove("no-js");
+  })();
+</script>
+<script src="assets/site.js" defer></script>
 </head>
 <body>
-<main>
-<header><a class="brand" href="./">Notemory</a></header>
-<h1>Notemory</h1>
-<p class="meta">iPad için ders notları · Lecture notes for iPad</p>
-<h2>Türkçe</h2>
-<ul>
-  <li><a href="tr/kullanim-kosullari.html">Kullanım Koşulları</a></li>
-  <li><a href="tr/gizlilik.html">Gizlilik Politikası</a></li>
-  <li><a href="tr/destek.html">Destek</a></li>
-</ul>
-<h2>English</h2>
-<ul>
-  <li><a href="en/terms.html">Terms of Use</a></li>
-  <li><a href="en/privacy.html">Privacy Policy</a></li>
-  <li><a href="en/support.html">Support</a></li>
-</ul>
+<a class="skip" href="#main" data-i18n="skip">Skip to content</a>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Notemory"><img src="assets/img/icon.webp" alt="" width="34" height="34">Notemory</a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#features" data-i18n="nav.features">Features</a>
+      <a href="#plans" data-i18n="nav.plans">Plans</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
+      <a href="en/support.html" data-href-tr="tr/destek.html" data-i18n="nav.support">Support</a>
+    </nav>
+    <div class="tools">
+      <a class="icon-link social" href="https://www.instagram.com/notemory.app/" rel="me noopener" target="_blank" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a class="icon-link social" href="https://www.tiktok.com/@notemory.app" rel="me noopener" target="_blank" aria-label="TikTok">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16.6 3c.4 2.2 1.9 3.8 4.1 4v3a7.2 7.2 0 0 1-4-1.3v6.4A6.1 6.1 0 1 1 10.6 9v3.1a3 3 0 1 0 2.9 3V3h3.1Z"/></svg>
+      </a>
+      <a class="icon-link social" href="mailto:velanotemory@gmail.com" aria-label="E-mail">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m4 7 8 6 8-6"/></svg>
+      </a>
+      <div class="lang" role="group" aria-label="Language / Dil">
+        <button type="button" data-lang="tr" aria-pressed="false" lang="tr">TR</button>
+        <button type="button" data-lang="en" aria-pressed="false" lang="en">EN</button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+  <section class="hero" id="top">
+    <div class="wrap">
+      <div class="reveal in">
+        <img class="hero-icon" src="assets/img/icon.webp" alt="" width="88" height="88">
+        <h1>Notemory<span class="sub" data-i18n="hero.sub">Lecture Notes &amp; AI</span></h1>
+        <p class="lead" data-i18n="hero.lead">Record the lecture, write on your slides with Apple Pencil, and tap your ink to hear what was said at that moment. AI turns it into summaries and quizzes that point back to the exact slide.</p>
+        <div class="buttons">
+          <a class="btn btn-primary store" href="https://apps.apple.com/app/id6837686573" data-store>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>
+            <span class="label"><small data-i18n="store.small">Coming soon</small><span data-i18n="store.label">to the App Store</span></span>
+          </a>
+          <a class="btn btn-ghost" href="#record" data-i18n="hero.more">See how it works</a>
+        </div>
+        <p class="note" data-i18n="hero.note">For iPad, with or without Apple Pencil. Free to start.</p>
+      </div>
+      <div class="hero-shot reveal in delay">
+        <div class="glow" aria-hidden="true"></div>
+        <div class="device tilt"><img data-shot="3-summary" src="assets/img/en-3-summary.webp" width="1032" height="1376" alt="A summary beside the slides, each point with a slide citation" data-i18n-alt="alt.summary" fetchpriority="high"></div>
+      </div>
+    </div>
+  </section>
+
+  <div id="features"></div>
+
+  <section class="story" id="record">
+    <div class="wrap">
+      <div class="text reveal">
+        <span class="overline" data-i18n="rec.over">Record while you write</span>
+        <h2 data-i18n="rec.title">The lecture, synced to your slides.</h2>
+        <p class="lead" data-i18n="rec.lead">Import the lecture’s slides, press record and write on them with Apple Pencil. The transcript is made on your iPad as the lecturer speaks, and every word knows which slide was on screen.</p>
+        <ul class="points">
+          <li data-i18n="rec.p1">Live transcript in Turkish or English, made on the device</li>
+          <li data-i18n="rec.p2">The audio never leaves your iPad</li>
+          <li data-i18n="rec.p3">Pens, highlighter behind the text, shapes, tape, stickers, text boxes</li>
+        </ul>
+      </div>
+      <div class="shots reveal delay"><div class="device drift"><img data-shot="1-lecture" src="assets/img/en-1-lecture.webp" width="1032" height="1376" loading="lazy" alt="A lecture slide with a circled word, the playback bar and the live transcript" data-i18n-alt="alt.lecture"></div></div>
+    </div>
+  </section>
+
+  <section class="story flip" id="listen">
+    <div class="wrap">
+      <div class="text reveal">
+        <span class="overline" data-i18n="ink.over">Tap your ink</span>
+        <h2 data-i18n="ink.title">Hear exactly what was said when you wrote it.</h2>
+        <p class="lead" data-i18n="ink.lead">Every stroke remembers its moment in the recording. Turn on Listen, tap a word you circled, and playback jumps right there. Replay your notes as they were written, in time with the lecture.</p>
+        <ul class="points">
+          <li data-i18n="ink.p1">Tap a transcript line to see the ink written during it</li>
+          <li data-i18n="ink.p2">The lecturer’s “this will be on the exam” is marked on the slide by itself</li>
+          <li data-i18n="ink.p3">Import Zoom, Teams or phone recordings too</li>
+        </ul>
+      </div>
+      <div class="shots reveal delay"><div class="device crop drift"><img data-shot="1-lecture" src="assets/img/en-1-lecture.webp" width="1032" height="1376" loading="lazy" style="object-position: 50% 8%" alt="Close-up of a slide where “Glucokinase” is circled in red ink" data-i18n-alt="alt.ink"></div></div>
+    </div>
+  </section>
+
+  <section class="story" id="ai">
+    <div class="wrap">
+      <div class="text reveal">
+        <span class="overline" data-i18n="ai.over">AI that shows its sources</span>
+        <h2 data-i18n="ai.title">Summaries and quizzes that point back to the slide.</h2>
+        <p class="lead" data-i18n="ai.lead">Get a summary of the slides and the lecture where every point cites its slide. Take quizzes in seven question types; after each answer, “Show on Slide” highlights the exact line it came from.</p>
+        <ul class="points">
+          <li data-i18n="ai.p1">Flashcards, fill-in cards and diagram cards</li>
+          <li data-i18n="ai.p2">Spaced repetition that tightens before your exams</li>
+          <li data-i18n="ai.p3">Ask your notes, with cited sources (Pro)</li>
+        </ul>
+        <span class="chip" data-i18n="ai.chip">Plus and Pro</span>
+      </div>
+      <div class="shots pair reveal delay">
+        <div class="device"><img data-shot="2-quiz" src="assets/img/en-2-quiz.webp" width="1032" height="1376" loading="lazy" alt="A quiz question answered, with the slide it came from highlighted" data-i18n-alt="alt.quiz"></div>
+        <div class="device"><img data-shot="simulation" src="assets/img/en-simulation.webp" width="1032" height="1376" loading="lazy" alt="Setting up a timed exam simulation: question types, length and difficulty" data-i18n-alt="alt.simulation"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story flip" id="math">
+    <div class="wrap">
+      <div class="text reveal">
+        <span class="overline" data-i18n="math.over">Math, written and solved</span>
+        <h2 data-i18n="math.title">Handwriting to LaTeX. Step-by-step solutions.</h2>
+        <p class="lead" data-i18n="math.lead">Circle a handwritten formula and it becomes clean, editable LaTeX. Graph a function on the page. Stuck on a problem? Reveal the solution one step at a time, or let it find the first wrong line in your own working.</p>
+        <ul class="points">
+          <li data-i18n="math.p1">Cornell, lined, grid and planner paper; whiteboards that grow</li>
+          <li data-i18n="math.p2">Formulas and graphs you can edit later</li>
+          <li data-i18n="math.p3">Step-by-step solutions and “Check My Work” (Pro)</li>
+        </ul>
+      </div>
+      <div class="shots reveal delay"><div class="device drift"><img data-shot="4-notebook" src="assets/img/en-4-notebook.webp" width="1032" height="1376" loading="lazy" alt="A Cornell notebook page with typed notes and two rendered formulas" data-i18n-alt="alt.notebook"></div></div>
+    </div>
+  </section>
+
+  <section class="story" id="topics">
+    <div class="wrap">
+      <div class="text reveal">
+        <span class="overline" data-i18n="topic.over">Know where you stand</span>
+        <h2 data-i18n="topic.title">A topic map with your weak spots.</h2>
+        <p class="lead" data-i18n="topic.lead">Every course becomes a map of its topics, with how well you know each one from your quizzes and reviews. Weak topics turn red, and one tap starts a quiz on exactly those slides.</p>
+        <ul class="points">
+          <li data-i18n="topic.p1">Weak slides ranked from your answers</li>
+          <li data-i18n="topic.p2">Stars and question marks you place collect per course</li>
+          <li data-i18n="topic.p3">Search everything: slides, handwriting, scans, transcripts</li>
+        </ul>
+      </div>
+      <div class="shots reveal delay"><div class="device drift"><img data-shot="5-course" src="assets/img/en-5-course.webp" width="1032" height="1376" loading="lazy" alt="A course page with its topic map, one topic marked weak" data-i18n-alt="alt.course"></div></div>
+    </div>
+  </section>
+
+  <section class="story flip" id="exams">
+    <div class="wrap">
+      <div class="text reveal">
+        <span class="overline" data-i18n="exam.over">Exam mode</span>
+        <h2 data-i18n="exam.title">Ready on exam day, with a plan for the week.</h2>
+        <p class="lead" data-i18n="exam.lead">Photograph your exam schedule and the exams are added for you. See the countdown and how ready you are, practise with a timed exam simulation, and let a study plan fit reviews and weak topics around your classes.</p>
+        <ul class="points">
+          <li data-i18n="exam.p1">Reminders before every exam</li>
+          <li data-i18n="exam.p2">Timed simulation with an estimated grade</li>
+          <li data-i18n="exam.p3">A weekly study plan around your calendar (Plus and Pro)</li>
+        </ul>
+      </div>
+      <div class="shots pair reveal delay">
+        <div class="device"><img data-shot="exam" src="assets/img/en-exam.webp" width="1032" height="1376" loading="lazy" alt="An exam page: 12 days left, reminders and the course" data-i18n-alt="alt.exam"></div>
+        <div class="device"><img data-shot="agenda" src="assets/img/en-agenda.webp" width="1032" height="1376" loading="lazy" alt="The week’s agenda with classes, the exam and study suggestions" data-i18n-alt="alt.agenda"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story" id="import">
+    <div class="wrap">
+      <div class="text reveal">
+        <span class="overline" data-i18n="imp.over">Bring what you have</span>
+        <h2 data-i18n="imp.title">PowerPoint, Word, PDF and lecture recordings.</h2>
+        <p class="lead" data-i18n="imp.lead">Drop in the lecture’s PowerPoint or Word file and it’s converted on your iPad, speaker notes included. Import a recording from Zoom, Teams or your phone: it’s transcribed on the device and matched to the slides.</p>
+        <ul class="points">
+          <li data-i18n="imp.p1">Converted on the iPad, nothing uploaded</li>
+          <li data-i18n="imp.p2">Long recordings keep transcribing in the background</li>
+          <li data-i18n="imp.p3">Correct the slide matching with a tap</li>
+        </ul>
+      </div>
+      <div class="shots reveal delay"><div class="device drift"><img data-shot="import" src="assets/img/en-import.webp" width="1032" height="1376" loading="lazy" alt="Importing a lecture recording into a course" data-i18n-alt="alt.import"></div></div>
+    </div>
+  </section>
+
+  <section class="band" id="privacy">
+    <div class="wrap">
+      <header class="intro reveal">
+        <span class="overline" data-i18n="priv.over">iCloud and privacy</span>
+        <h2 data-i18n="priv.title">Your notes stay yours.</h2>
+        <p class="lead" data-i18n="priv.lead">Your library lives on your iPad and, if you turn it on, in your own iCloud, on all your iPads.</p>
+      </header>
+      <div class="grid">
+        <article class="card reveal">
+          <div class="sym"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M7 18a4 4 0 0 1-.6-8 6 6 0 0 1 11.6 1.5A3.5 3.5 0 0 1 17.5 18Z"/></svg></div>
+          <h3 data-i18n="priv.c1t">iCloud sync and backups</h3>
+          <p data-i18n="priv.c1">Slides, ink, notebooks and recordings sync through your own iCloud. Both devices’ ink is kept when they meet. Export a backup any time.</p>
+        </article>
+        <article class="card reveal delay">
+          <div class="sym"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+          <h3 data-i18n="priv.c2t">Audio stays on the iPad</h3>
+          <p data-i18n="priv.c2">Speech becomes text on the device. Lecture audio is never uploaded.</p>
+        </article>
+        <article class="card reveal">
+          <div class="sym"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 3 4 6v6c0 4.5 3.4 8.3 8 9 4.6-.7 8-4.5 8-9V6Z"/><path d="m9 12 2 2 4-4"/></svg></div>
+          <h3 data-i18n="priv.c3t">AI only when you ask</h3>
+          <p data-i18n="priv.c3">AI features send only what that feature needs, after you agree, and the content isn’t stored on our server.</p>
+        </article>
+        <article class="card reveal delay">
+          <div class="sym"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m6 6 12 12"/></svg></div>
+          <h3 data-i18n="priv.c4t">No ads in the app</h3>
+          <p data-i18n="priv.c4">Your notes, recordings and transcripts are never shared for advertising. This site has no cookies or trackers.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="band" id="plans">
+    <div class="wrap">
+      <header class="intro reveal">
+        <span class="overline" data-i18n="plans.over">Plans</span>
+        <h2 data-i18n="plans.title">Start free. Add AI when you want it.</h2>
+        <p class="lead" data-i18n="plans.lead">Prices are shown in the App Store in your currency. Plus and Pro start with a 7-day free trial.</p>
+      </header>
+      <div class="grid">
+        <article class="card plan reveal">
+          <h3 data-i18n="plan.free">Free</h3>
+          <ul>
+            <li data-i18n="free.1">3 notebooks and 3 documents</li>
+            <li data-i18n="free.2">Recording and live transcript</li>
+            <li data-i18n="free.3">Pencil notes, Listen mode, search</li>
+            <li data-i18n="free.4">The built-in sample course</li>
+          </ul>
+        </article>
+        <article class="card plan reveal delay">
+          <h3>Lite</h3>
+          <ul>
+            <li data-i18n="lite.1">Unlimited notebooks and documents</li>
+            <li data-i18n="lite.2">Everything in Free</li>
+            <li data-i18n="lite.3">No AI features</li>
+          </ul>
+        </article>
+        <article class="card plan featured reveal">
+          <span class="badge" data-i18n="plans.trial">7 days free</span>
+          <h3>Plus</h3>
+          <ul>
+            <li data-i18n="plus.1">AI summaries that cite the slide</li>
+            <li data-i18n="plus.2">Quizzes, flashcards and fresh review questions</li>
+            <li data-i18n="plus.3">Study plans and topic maps</li>
+            <li data-i18n="plus.4">Handwritten math to LaTeX</li>
+            <li data-i18n="plus.5">Exam schedules read from a photo</li>
+          </ul>
+        </article>
+        <article class="card plan reveal delay">
+          <span class="badge" data-i18n="plans.trial">7 days free</span>
+          <h3>Pro</h3>
+          <ul>
+            <li data-i18n="pro.1">Everything in Plus, with the largest allowance</li>
+            <li data-i18n="pro.2">AI tutor on your own slides, also by voice</li>
+            <li data-i18n="pro.3">Step-by-step solutions</li>
+            <li data-i18n="pro.4">Ask your notes, audio overviews</li>
+            <li data-i18n="pro.5">Handwriting reading, grading of written answers</li>
+          </ul>
+        </article>
+      </div>
+      <p class="note" data-i18n="plans.note">AI features have a monthly allowance; Settings shows how much is left. Subscriptions renew automatically and can be cancelled in your Apple Account settings.</p>
+    </div>
+  </section>
+
+  <section class="band" id="faq">
+    <div class="wrap">
+      <header class="intro reveal">
+        <span class="overline" data-i18n="faq.over">FAQ</span>
+        <h2 data-i18n="faq.title">Questions</h2>
+      </header>
+      <div class="faq">
+        <details class="reveal"><summary data-i18n="q1">Which devices does Notemory run on?</summary><p data-i18n="a1">iPad with iPadOS 26 or later. Apple Pencil is best for writing, but you can also write with your finger.</p></details>
+        <details class="reveal"><summary data-i18n="q2">Is my lecture audio uploaded?</summary><p data-i18n="a2">No. Recordings and transcripts stay on your iPad, and in your own iCloud if you turn on sync. Speech is turned into text on the device.</p></details>
+        <details class="reveal"><summary data-i18n="q3">Which languages are transcribed?</summary><p data-i18n="a3">Turkish and English. The first recording in a language may download Apple’s speech model.</p></details>
+        <details class="reveal"><summary data-i18n="q4">Do I need an account?</summary><p data-i18n="a4">No. AI features use an anonymous account the app creates after you accept its AI notice. Sign in with Apple is optional and keeps your plan on all your devices.</p></details>
+        <details class="reveal"><summary data-i18n="q5">What happens when a subscription ends?</summary><p data-i18n="a5">Nothing is deleted. On Free you can still open, read, play and export everything; the three most recently edited notebooks and documents stay editable.</p></details>
+        <details class="reveal"><summary data-i18n="q6">Can I try it before adding my own lectures?</summary><p data-i18n="a6">Yes. A built-in sample course has slides, a recording with its transcript, notes, a summary, a quiz and flashcards.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="wrap reveal">
+      <img src="assets/img/icon.webp" alt="" width="96" height="96" loading="lazy">
+      <h2 data-i18n="cta.title">Your next lecture, remembered.</h2>
+      <a class="btn btn-primary store" href="https://apps.apple.com/app/id6837686573" data-store>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"/></svg>
+        <span class="label"><small data-i18n="store.small">Coming soon</small><span data-i18n="store.label">to the App Store</span></span>
+      </a>
+    </div>
+  </section>
 </main>
+
+<footer>
+  <div class="wrap">
+    <div class="about">
+      <a class="brand" href="#top"><img src="assets/img/icon.webp" alt="" width="34" height="34" loading="lazy">Notemory</a>
+      <p style="margin-top:12px" data-i18n="foot.about">Lecture notes and AI for iPad.</p>
+    </div>
+    <div>
+      <h4 data-i18n="foot.legal">Legal</h4>
+      <ul>
+        <li><a href="en/terms.html" data-href-tr="tr/kullanim-kosullari.html" data-i18n="foot.terms">Terms of Use</a></li>
+        <li><a href="en/privacy.html" data-href-tr="tr/gizlilik.html" data-i18n="foot.privacy">Privacy Policy</a></li>
+        <li><a href="en/support.html" data-href-tr="tr/destek.html" data-i18n="foot.support">Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="foot.other">In the other language</h4>
+      <ul>
+        <li><a href="tr/kullanim-kosullari.html" data-href-tr="en/terms.html" data-i18n="foot.terms2" lang="tr" data-lang-swap>Kullanım Koşulları</a></li>
+        <li><a href="tr/gizlilik.html" data-href-tr="en/privacy.html" data-i18n="foot.privacy2" lang="tr" data-lang-swap>Gizlilik Politikası</a></li>
+        <li><a href="tr/destek.html" data-href-tr="en/support.html" data-i18n="foot.support2" lang="tr" data-lang-swap>Destek</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 data-i18n="foot.contact">Contact</h4>
+      <ul>
+        <li><a href="mailto:velanotemory@gmail.com">velanotemory@gmail.com</a></li>
+        <li><a href="https://www.instagram.com/notemory.app/" rel="me noopener" target="_blank">Instagram · @notemory.app</a></li>
+        <li><a href="https://www.tiktok.com/@notemory.app" rel="me noopener" target="_blank">TikTok · @notemory.app</a></li>
+      </ul>
+    </div>
+    <p class="fine"><span data-i18n="foot.fine">© 2026 Vela Systems. Apple, iPad, Apple Pencil and iCloud are trademarks of Apple Inc. Fonts: Bricolage Grotesque and DM Sans (SIL Open Font License,</span> <a href="assets/fonts/BricolageGrotesque-OFL.txt">1</a>, <a href="assets/fonts/DMSans-OFL.txt">2</a>).</p>
+  </div>
+</footer>
 </body>
 </html>
