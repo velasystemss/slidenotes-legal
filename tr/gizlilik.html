@@ -14,7 +14,7 @@
 </header>
 
 <h1>Gizlilik Politikası ve KVKK Aydınlatma Metni</h1>
-<p class="meta">Yürürlük: 16 Kasım 2026 · Sürüm 1.1</p>
+<p class="meta">Yürürlük: 21 Kasım 2026 · Sürüm 1.2</p>
 
 <h2>Veri sorumlusu</h2>
 <p>Notemory, Gokberk Şenel (Vela Systems), Prof. Dr. Ahmet Taner Kışlalı Mah., Selçuk Yula Cad., Çankaya/Ankara, Türkiye (“biz”) tarafından yayımlanan bir iPad uygulamasıdır. Bu metinde anlatılan veriler için 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) ve AB Genel Veri Koruma Tüzüğü (GDPR) kapsamında veri sorumlusu biziz. İletişim: <a href="mailto:velanotemory@gmail.com">velanotemory@gmail.com</a>.</p>
@@ -24,7 +24,7 @@
   <li>Slaytların, defterlerin, el yazın, ses kayıtların ve deşifrelerin iPad’inde (iCloud eşitlemeyi açarsan kendi iCloud hesabında) durur. Bizde kopyası yoktur.</li>
   <li>Ders sesi cihazından hiç çıkmaz. Konuşma, iPad’de yazıya çevrilir.</li>
   <li>Yapay zekâ özellikleri (Plus ve Pro), uygulamadaki bilgilendirmeyi kabul ettikten sonra yalnızca o özelliğin ihtiyaç duyduğu metin ve görselleri Frankfurt’taki sunucumuza, oradan da ABD’deki Anthropic Claude API’sine gönderir. Bu içeriği saklamayız.</li>
-  <li>Reklam, uygulamalar ve web siteleri arası takip, reklam kimliği ve üçüncü taraf analiz aracı yoktur.</li>
+  <li>Uygulamada reklam yoktur. Uygulamanın reklamını Meta’da (Facebook, Instagram) ve TikTok’ta yaparız. Yalnızca Apple’ın izleme sorusunda izin verirsen bu ağlar, reklamlarımızdan birini gördükten sonra uygulamayı yüklediğini, açtığını ya da abone olduğunu cihazının reklam kimliğiyle öğrenir; izin vermezsen onlara hiçbir şey gönderilmez. Notların, kayıtların, deşifrelerin ve yazdığın hiçbir şey onlarla paylaşılmaz.</li>
   <li>Adını bize vermezsin. Yapay zekâ özellikleri cihazında oluşturulan anonim bir hesapla çalışır; Apple ile giriş yapmak isteğe bağlıdır.</li>
   <li>Hesabını istediğin zaman uygulamadan silebilirsin: Ayarlar › Hesap › Hesabı Sil.</li>
 </ul>
@@ -40,6 +40,12 @@
 <p><strong>Anonim hesap.</strong> İlk yapay zekâ kullanımında uygulama Supabase Auth ile anonim bir hesap oluşturur. Oturumu iPad’inin anahtar zincirinde saklanır. Adı, e-postası ya da parolası yoktur.</p>
 <p><strong>Apple ile giriş (isteğe bağlı).</strong> Ayarlar › Hesap bölümünden Apple ile giriş yapmayı seçersen Apple bize Apple Hesabın için değişmeyen bir kimlik ve bir e-posta adresi verir: kendi adresin ya da “E-postamı Gizle”yi seçersen özel bir aktarma adresi. Apple’dan adını istemeyiz. Supabase Auth bunları hesabınla birlikte saklar; böylece yapay zekâ planın, kullanımın ve aboneliğin diğer cihazlarında ve uygulamayı yeniden yükledikten sonra da seninle kalır. Notların hesabın parçası değildir.</p>
 
+<h2>Reklam ölçümü (Meta ve TikTok)</h2>
+<p>Notemory’nin reklamlarını Meta’nın platformlarında (Facebook, Instagram, Audience Network) ve TikTok’ta yayımlarız. Hangi reklamların yüklemeye ve aboneliğe yol açtığını öğrenmek için uygulamada onların yazılım geliştirme kitleri (SDK) bulunur. Onlara asla gönderilmeyenler: notların, slaytların, kayıtların, deşifrelerin, el yazın, soruların, yapay zekâ içerikleri, ders ve dosya adları, e-postan ya da hesap kimliğimiz.</p>
+<p><strong>Yalnızca iznin varsa.</strong> Tanıtımdan sonra iOS, Notemory’nin seni izlemesine izin verip vermediğini sorar (Uygulama İzleme Şeffaflığı). Meta’nın ve TikTok’un SDK’ları yalnızca izin verirsen başlar ve onlara yalnızca şu olaylar cihazının reklam kimliğiyle (IDFA) gider: uygulamanın yüklendiği ya da açıldığı ve tanıtımın bittiği (SDK’lardan), ücretsiz denemenin başladığı ya da aboneliğin satın alındığı veya yenilendiği, fiyatı ve para birimiyle (Meta’ya RevenueCat’ten, TikTok’a sunucumuzdan). Bunun için RevenueCat reklam kimliğini, satıcı kimliğini (IDFV), IP adresini ve Meta’nın uygulama için oluşturduğu kimliği aboneliğinle birlikte saklar. TikTok’un SDK’sı çalıştığı sürece kendi koduyla ilgili çökme raporlarını da TikTok’a gönderebilir.</p>
+<p><strong>İzin vermezsen</strong> (ya da henüz yanıtlamadıysan) Meta’ya ve TikTok’a hiçbir şey gönderilmez: iki SDK da başlamaz, reklam kimliği okunmaz, RevenueCat bu kimliklerin hiçbirini almaz ve ne RevenueCat ne de sunucumuz onlara deneme, satın alma ya da yenileme gönderir. Tek sinyal Apple’ın kendisidir: uygulama, ulaştığın aşamayı (yükledin, tanıtımı bitirdin, ücretsiz deneme başlattın, abone oldun) iOS’a bir sayı olarak bildirir; bir reklamdan geldiysen Apple’ın AdAttributionKit / SKAdNetwork sistemi o reklam ağına seni ya da cihazını tanımlamayan, gecikmeli ve anonim bir rapor gönderir. Bu, ne yanıt verirsen ver herkes için olur ve içindeki hiçbir şey doğrudan bizden gitmez.</p>
+<p><strong>Fikrini değiştirmek.</strong> İzni istediğin zaman iPadOS Ayarlar › Gizlilik ve Güvenlik › İzleme (ya da Ayarlar › Notemory) bölümünden verebilir ya da geri alabilirsin. Geri aldığında SDK’lar veri toplamayı hemen bırakır ve bir daha başlamaz; RevenueCat de değişikliği kaydeder, böylece başka deneme, satın alma ya da yenileme gönderilmez. Meta ve TikTok’a ulaşan veriler için kendi gizlilik politikalarına göre onlara da başvurabilirsin (<a href="https://www.facebook.com/privacy/policy/">Meta</a>, <a href="https://www.tiktok.com/legal/page/global/privacy-policy/tr-TR">TikTok</a>); ne kadar sakladıkları da orada yazar.</p>
+
 <h2>Abonelikler</h2>
 <p>Abonelikler Apple tarafından App Store üzerinden satılır ve ücretlendirilir; ödeme bilgilerini hiç görmeyiz. Abonelikleri yönetmek için RevenueCat, Inc.’i (ABD) kullanırız. RevenueCat anonim hesap kimliğini, App Store işlem ve abonelik bilgilerini (ürün, satın alma, yenileme ve bitiş tarihleri, deneme, ülke/para birimi) ve satın almaları doğrulamak için gereken temel uygulama ve cihaz bilgilerini alır. RevenueCat, hesabına doğru planın uygulanması için abonelik değişikliklerini sunucumuza bildirir; sunucumuz aboneliğin durumunu, ürününü, tarihlerini, deneme durumunu ve olay kimliklerini saklar (fiyat ve ödeme bilgisi saklamaz).</p>
 
@@ -51,10 +57,11 @@
   <tr><td>Hesabını tüm cihazlarında tutmak (Apple ile giriş)</td><td>Apple’ın hesabın için verdiği kimlik, Apple’ın paylaştığı e-posta</td><td>Senin isteğinle sözleşmenin ifası (KVKK m.5/2-c; GDPR m.6/1-b)</td></tr>
   <tr><td>Abonelikler</td><td>Anonim kimlik, abonelik ve işlem bilgileri</td><td>Sözleşme; mali kayıtlara ilişkin hukuki yükümlülükler (KVKK m.5/2-ç; GDPR m.6/1-c)</td></tr>
   <tr><td>Planları boyutlandırmak için toplu kullanım istatistikleri</td><td>İçerik olmadan, plan başına kullanım sayıları</td><td>Meşru menfaat</td></tr>
+  <tr><td>Reklamlarımızı ölçmek (Meta, TikTok), yalnızca izlemeye izin verirsen</td><td>Fiyat ve para birimiyle yükleme, açılış, tanıtım, deneme, satın alma ve yenileme olayları; reklam kimliği, satıcı kimliği, IP adresi, Meta’nın uygulama için oluşturduğu kimlik</td><td>Apple’ın izleme sorusunda verdiğin ve Ayarlar’dan geri alabileceğin açık rıza (KVKK m.5/1; GDPR m.6/1-a)</td></tr>
 </table>
 
 <h2>Yurt dışına aktarım</h2>
-<p>Yapay zekâ istekleri Anthropic, abonelik verileri RevenueCat tarafından ABD’de işlenir. Bu aktarımlar, KVKK’nın 9. maddesi ve GDPR’ın V. Bölümü kapsamındaki güvencelere (standart sözleşme maddeleri gibi) dayanır. Sunucu sağlayıcımız verileri AB’de (Almanya) saklar.</p>
+<p>Yapay zekâ istekleri Anthropic, abonelik verileri RevenueCat tarafından ABD’de işlenir. İzlemeye izin verirsen reklam ölçümü verileri Meta’ya ve TikTok’a gider; onlar bu verileri ABD’de ve başka ülkelerde işler; bu aktarım açık rızana dayanır. Diğer aktarımlar KVKK’nın 9. maddesi ve GDPR’ın V. Bölümü kapsamındaki güvencelere (standart sözleşme maddeleri gibi) dayanır. Sunucu sağlayıcımız verileri AB’de (Almanya) saklar.</p>
 
 <h2>Saklama süreleri</h2>
 <p>Kullanım kayıtları, plan hakları, fatura itirazları ve istatistikler için 12 ay saklanır, sonra silinir ya da anonimleştirilir. Abonelik kayıtları abonelik sürdükçe, sonrasında da kanunun gerektirdiği süre boyunca saklanır. İsteklerin içeriğini saklamayız. iPad’indeki veriler, sen ya da uygulamayı silene kadar kalır. Hesabını sildiğinde aşağıdaki “Hesabını silmek” bölümü geçerlidir.</p>
